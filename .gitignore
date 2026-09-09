@@ -1,0 +1,13 @@
+# Source and extraction material that is not required by the website
+Pokopia PokéTracker.xlsx
+data/tracker.raw.json
+scripts/
+docs/
+
+# Local/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+*.tmp

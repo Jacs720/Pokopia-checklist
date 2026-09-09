@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#A77FFF">
+  <title>Pokopia PokéTracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-section="main">
+  <main>
+    <nav class="section-tabs" aria-label="Pokédex section" data-active="main">
+      <button class="tab is-active" data-section-tab="main" data-i18n="main">Main</button>
+      <button class="tab" data-section-tab="event" data-i18n="event">Event</button>
+      <button class="tab" data-section-tab="dlc">Bubbly Basin</button>
+    </nav>
+
+    <div class="toolbar-row">
+      <div class="view-switch" role="group" aria-label="Checklist type" data-active="pokemon">
+        <button class="view-button is-active" data-view="pokemon" data-i18n="pokemonDex">Pokémon Dex</button>
+        <button class="view-button" data-view="habitat" data-i18n="habitatDex">Habitat Dex</button>
+      </div>
+      <div class="progress-card" aria-live="polite" aria-label="Checklist progress">
+        <strong id="progress-count">0 / 0</strong>
+        <div class="progress-track" aria-hidden="true"><span id="progress-fill"></span></div>
+        <span id="progress-percent">0%</span>
+      </div>
+      <div class="toolbar-actions">
+        <label class="language-picker">
+          <span class="sr-only" data-i18n="language">Language</span>
+          <select id="language-select" aria-label="Language">
+            <option value="en">English</option>
+            <option value="ja">日本語</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="es">Español</option>
+            <option value="ko">한국어</option>
+            <option value="zh-Hans">简体中文</option>
+            <option value="zh-Hant">繁體中文</option>
+          </select>
+        </label>
+        <button id="filters-toggle" class="ghost-button" aria-expanded="false" data-i18n="filters">Filters</button>
+      </div>
+    </div>
+
+    <section id="filters-panel" class="filters-panel" aria-label="Filters" hidden>
+      <label class="field search-field">
+        <span data-i18n="search">Search</span>
+        <input id="search-input" type="search" placeholder="Name, number, ability…" autocomplete="off" data-i18n-placeholder="searchPlaceholder">
+      </label>
+      <label class="field">
+        <span data-i18n="status">Status</span>
+        <select id="status-filter">
+          <option value="all" data-i18n="all">All</option>
+          <option value="missing" data-i18n="missing">Missing</option>
+          <option value="checked" data-i18n="checked">Checked</option>
+        </select>
+      </label>
+      <label class="field">
+        <span>Ideal Habitat</span>
+        <select id="ideal-filter"><option value="">Any</option></select>
+      </label>
+      <label class="field">
+        <span>Litter Drop</span>
+        <select id="litter-filter"><option value="">Any</option></select>
+      </label>
+      <label class="field">
+        <span>Favorite</span>
+        <select id="favorite-filter"><option value="">Any</option></select>
+      </label>
+      <label class="field">
+        <span>Ability</span>
+        <select id="ability-filter"><option value="">Any</option></select>
+      </label>
+      <button id="clear-filters" class="ghost-button clear-button" data-i18n="clearFilters">Clear filters</button>
+    </section>
+
+    <div class="results-line">
+      <span id="results-count">0 entries</span>
+      <span id="view-hint">Tap a sprite to mark it as registered.</span>
+    </div>
+
+    <section id="pokemon-grid" class="pokemon-grid" aria-label="Pokémon checklist"></section>
+
+    <section id="empty-state" class="empty-state" hidden>
+      <strong>No matches</strong>
+      <span data-i18n="emptyHelp">Try clearing or changing the filters.</span>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a
+      class="kofi-bread-button"
+      href="https://ko-fi.com/jacs26"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Support Pokopia PokéTracker on Ko-fi"
+      title="Buy me a bread on Ko-fi"
+    >
+      <img src="assets/ko-fi-bread.png" alt="">
+    </a>
+  </footer>
+
+  <dialog id="info-dialog" class="info-dialog">
+    <button id="dialog-close" class="dialog-close" aria-label="Close">×</button>
+    <div id="dialog-content"></div>
+  </dialog>
+
+  <script src="data/tracker-data.js"></script>
+  <script src="data/habitat-index.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
