@@ -1,8 +1,4 @@
-# Pokopia PokéTracker
-
-Web-first checklist for Pokémon Pokopia, designed as a clean, ad-free tracker for Pokémon and habitats.
-
-## Current foundation
+## Summary
 
 - Three Pokédex sections: **Main**, **Event**, and **Bubbly Basin DLC**.
 - Two independent checklist views: **Pokémon Dex** and **Habitat Dex**.
@@ -15,20 +11,5 @@ Web-first checklist for Pokémon Pokopia, designed as a clean, ad-free tracker f
 - Separate Pokopia and Bubbly Basin color themes using the supplied palette.
 - DLC Favorites gaps are preserved as undocumented instead of being guessed.
 
-Habitat artwork is loaded from Serebii. Localized Pokémon species names come from the PokeAPI data set, while habitat names and criteria are translated on demand and cached in the browser. English content and checklist progress continue to work if those translation services are unavailable.
+Habitat artwork is loaded from Serebii. Localized Pokémon species names come from the PokeAPI data set, while habitat names and criteria are translated on demand and cached in the browser.
 
-## Run locally
-
-Open `index.html` directly in a modern browser. The tracker data is loaded from a JavaScript data file, so a local web server is not required.
-
-## Data interpretation
-
-- Rows whose number starts with `Event` are separated from the Main Pokédex.
-- `Favorites` spans columns `N:S`; all populated values are retained as a list.
-- `Home` is preserved in the information view but is intentionally not yet used as a personalization setting.
-- Habitat checklist progress is separate from Pokémon registration progress, allowing the same three sections to be used as a Habitat Dex.
-- The habitat index order and image numbers follow Serebii. Entries without documented construction criteria remain visible as undocumented.
-
-## Publish with GitHub Pages
-
-Push the repository to GitHub, then open **Settings → Pages** and select **Deploy from a branch**, using `main` and the repository root (`/`). No build step is required.
